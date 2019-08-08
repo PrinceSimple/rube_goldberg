@@ -7,33 +7,34 @@
 </head>
 <table id="customers">
   <tr>
-    <th>Line</th>
-    <th>Von</th>
+    <th>Linie</th>
     <th>Nach</th>
-     <th>Status</th>
+    <th>Status</th>
   </tr>
-
+{% for bahn in Trains %}
   <tr>
-    <td>{{ line }}</td>
-    <td>{{ start }}</td>
-    <td>{{ end }}</td>
-    <td>{{ time }}</td>
+    <td>{{ bahn.line }}</td>
+    <td>{{ bahn.end }}</td>
+    <td>{{ (bahn.remaining / 60)|int }} min</td>
   </tr>
-
-  <tr>
-    <td>{{ line2 }}</td>
-    <td>{{ start2 }}</td>
-    <td>{{ end2 }}</td>
-    <td>{{ time2 }}</td>
-  </tr>
-
-  <tr>
-    <td>{{ line3 }}</td>
-    <td>{{ start3 }}</td>
-    <td>{{ end3 }}</td>
-    <td>{{ time3 }}</td>
-  </tr>
-
-
+{% endfor %}
+  <div class="flight-container" style="overflow: auto; max-height: 80vh">
+    <div class="table-responsive">
+      <table class="table" id="flights">
+        <thead>
+          <tr>
+            <th scope="col">Flight</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Check in</th>
+            <th scope="col">Depature</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+      </table>
+   </div>
+  </div>
 </body>
 </html>
